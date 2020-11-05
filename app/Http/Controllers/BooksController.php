@@ -9,15 +9,21 @@ public function index ()
 {
   return Book::all();
 }
-
+    
 public function berdasarID($id)
 {
-
-        if ($book = Book::find($id)){
-        return $book;
-        } 
-        else{
-        return response('Book Not Found', 404);
-	}
+     $books = Book::find($id);
+  
+     if ($books) {
+         return response()->json([
+             'message'   => 'show book by ID',
+             'data'      => $books
+         ], 200);
+     } else {
+         return response()->json([
+             'message' => 'Book not found',
+         ], 404);
+   
+     } 
 }
 }
