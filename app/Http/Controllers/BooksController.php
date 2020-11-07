@@ -11,7 +11,7 @@ public function index ()
 {
   return Book::all();
 }
-
+    
 public function berdasarID($id)
 {
      $books = Book::find($id);
@@ -25,6 +25,7 @@ public function berdasarID($id)
          return response()->json([
              'message' => 'Book not found',
          ], 404);
+<<<<<<< HEAD
         }
       
 }
@@ -91,3 +92,9 @@ public function store(Request $request)
 }
 
   
+=======
+   
+     } 
+}
+}
+>>>>>>> 7752fe4ace372d307550f61288fcc93070d27d5d
