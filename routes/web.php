@@ -21,6 +21,7 @@ $router->get('/key', function() {
     return \Illuminate\Support\Str::random(32);
 });
 
+
 $router->get('books', 'BooksController@index');
 $router->get('/books/{id}', 'BooksController@berdasarID');
 $router->post('books', 'BooksController@store');
@@ -31,4 +32,4 @@ $router->get('authors', 'AuthorController@index');
 $router->get('/authors/{id}', 'AuthorController@berdasarID');
 $router->post('authors', 'AuthorController@store');
 $router->put('authors/{id}', 'AuthorController@update');
-$router->delete('authors/{id}', 'AuthorController@destroy');
+$router->delete('authors/{id}', 'AuthorController@destroy'); 

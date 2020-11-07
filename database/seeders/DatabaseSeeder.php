@@ -35,7 +35,7 @@ public function run()
             'updated_at' => Carbon::now()
         ]);
 
-        DB::table('author')->insert([
+        DB::table('authors')->insert([
             'Name' => 'Shabrina A.P',
             'Gender' => 'Female',
             'Biography' => 'Seorang mahasiswa Filkom',
@@ -43,12 +43,13 @@ public function run()
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('author')->insert([
+        DB::table('authors')->insert([
             'Name' => 'Imelda Dwi p.',
             'Gender' => 'Female',
             'Biography' => 'Seorang siswa SMA',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
     }
 }
