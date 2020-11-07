@@ -26,5 +26,23 @@ tidak lupa menambahkan use diatas dengan syntax: use Symfony\Component\HttpKerne
 
   Lalu membuat file 404.blade.php pada direktori resources/views/errors. Selanjutnya, pada syntax  return response('Book Not Found', 404); , dia akan menampilkan view di folder errors lalu ke 404.blade.php . Maka setelah dijalankan menggunakan postman, ketika memilih id yang tidak ada dalam data buku, akan memberikan pesan "Book Not Found" dan status code 404.
   
+==BOOKAPPCHALLANGE==
 
+Pada projek challange ini, saya dapat belajar mengenai CRUD (Create, Read, Update, Delete) di dalam Lumen dengan bantuan postman untuk mengecek dan mengganti pengaturan method nya (GET, POST, PUT, DELETE). Pada challenge ini kita membuat CRUD untuk endpoint authors pada project bookapp sebelumnya dengan skema database :
+○	id
+○	name: string
+○	gender:enum [‘male’,’female’]
+○	biography:text
+○	timestamp
+
+Jadi yang pertama kita membuat tabel authors dengan langkah - langkah seperti modul 5.
+Adapun penjelasan langkah - langkah pembuatan CRUD nya yang dibuat pada file AuthorController.php yaitu yang pertama kita membuat method POST untuk menginput authors baru (Create) dengan nama store dan terdapat parameter request pada AuthorController.php yang sebelumnya file tersebut sudah dibuat terlebih dahulu. Pada method tersebut terdapat fungsi untuk validasi bagian name, gender, biography yang bersifat required yang berarti harus diisi semua dulu agar sukses menginputkan data nya. Lalu pada method tersebut terdapat return respon berbentuk json array yang dapat memberikan pesan respon jika data berhasil dibuat.
+
+Selanjutnya membuat method GET yang berfungsi Read dengan nama method yaitu index dan terdapat return Author:: all() untuk menampilkan semua data dari tabel authors.
+
+Selanjutnya membuat method GET untuk menampilkan data author sesuai id dengan nama method yaitu berdasarID dan memiliki parameter id. Didalamnya terdapat seleksi kondisi if else, maka nanti akan menampilkan data authors sesuai id yang dipilih dan terdapat message dan jika memilih id yang tidak ada dalam data authors, maka akan menampilkan message dan status code 404 not found.
+
+Selanjutnya membuat method PUT untuk mengedit data authors sesuai id yang dipilih dengan nama method yaitu update dan memiliki parameter request dan juga id. Didalam method tersebut terdapat try catch exception yang berfungsi menghandle error dengan pendekatan object oriented, yang nanti jika id dalam data authros tidak ditemukan maka akan dilempar ke halaman 404 dengan pesan exception "author not found". Didalam method tersebut juga terdapat fungsi untuk menginputkan hanya untuk nama, gender dan biography. Lalu jika selesai, maka data akan disave dan terdapat respon message.
+
+Yang terakhir membuat method DELETE untuk menghapus data authors sesuai id yang dipilih dengan nama destroy dan memiliki parameter id. Didalam method tersebut terdapat try catch exception yang berfungsi menghandle error dengan pendekatan object oriented, yang nanti jika id dalam data authros tidak ditemukan maka akan dilempar ke halaman 404 dengan pesan exception "author not found". Dan jika id sesuai dengan data authors, maka data akan terhapus sesuai id yang dipilih. Lalu akan muncul respon message.
   
